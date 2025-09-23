@@ -12,13 +12,8 @@
             color: #4a004e;
             text-align: center;
             margin: 0;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
             padding: 20px;
+            overflow-x: hidden;
         }
 
         h1, p {
@@ -32,11 +27,12 @@
 
         p {
             font-size: 1.2rem;
-            margin: 5px 0;
+            margin: 10px 0;
         }
 
         #displayImage {
-            max-width: 70%;
+            max-width: 90%;
+            height: auto;
             border-radius: 15px;
             box-shadow: 0 0 20px rgba(255, 102, 178, 0.6);
             margin-top: 20px;
@@ -71,6 +67,7 @@
         .emoji {
             font-size: 2rem;
             animation: bounce 1.5s infinite alternate;
+            margin-top: 20px;
         }
 
         @keyframes bounce {
@@ -86,12 +83,11 @@
     <p>Год назад я и не мог подумать, что у меня будет такая суперская, красивая, замечательная и очень классная жена! 💖</p>
     <p>А два года назад я и не мог представить, что встречу такую умопомрачительную девушку! 😍</p>
     <p>Желаю тебе всего самого наилучшего, исполнения твоих планов и желаний! ✨🌸</p>
-
     <p>Спасибо, что каждый день делаешь мою жизнь ярче и веселее. Ты — моё вдохновение и счастье! 🥰</p>
 
     <img id="displayImage" class="img-fluid d-block mx-auto" alt="Загруженная фотография">
 
-    <div class="emoji" style="margin-top: 20px;">🎈🎉🥰🎁</div>
+    <div class="emoji">🎈🎉🥰🎁</div>
 
     <!-- Модальное окно -->
     <div class="modal fade" id="congratsModal" tabindex="-1" aria-hidden="true">
@@ -128,10 +124,7 @@
             confetti.style.backgroundColor = `hsl(${Math.random()*360}, 70%, 60%)`;
             confetti.style.width = confetti.style.height = Math.random() * 12 + 8 + 'px';
             document.body.appendChild(confetti);
-
-            setTimeout(() => {
-                confetti.remove();
-            }, 5000);
+            setTimeout(() => confetti.remove(), 5000);
         }
         setInterval(createConfetti, 150);
 
