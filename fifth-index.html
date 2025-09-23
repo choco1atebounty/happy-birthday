@@ -64,23 +64,26 @@
 </head>
 <body>
     <h1>ОГО!</h1>
-    <h2 id="score"></h2>
+    <h2 id="score">Загрузка результатов...</h2>
     <p>Молодец!</p>
-    <p>Поздравляю тебя с отличным прохождением! <br>
-       Вот один из твоих призов!</p>
+    <p>Поздравляю тебя с отличным прохождением! <br>Вот один из твоих призов!</p>
 
     <a href="we-index.html">
         <img src="./img/v1EYCt.svg" class="img-fluid" alt="Приз">
     </a>
 
     <script>
+        // Получаем параметры из URL
         const params = new URLSearchParams(window.location.search);
-        const score = params.get("score");
-        const total = params.get("total");
+        let score = params.get("score");
+        let total = params.get("total");
 
-        if (score && total) {
-            document.getElementById("score").innerText = "Ты набрала " + score + " из " + total + " баллов!";
-        }
+        // Приводим к числу и проверяем
+        score = score ? parseInt(score) : 0;
+        total = total ? parseInt(total) : 0;
+
+        // Выводим результат
+        document.getElementById("score").innerText = `Ты набрала ${score} из ${total} баллов!`;
     </script>
 </body>
 </html>

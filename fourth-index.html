@@ -52,8 +52,21 @@
             transition: all 0.2s ease;
             margin-top: 50px;
             position: relative;
-            touch-action: manipulation; /* отключаем масштабирование при тапе */
-            user-select: none; /* нельзя выделить текст при двойном клике */
+            user-select: none;
+            cursor: pointer;
+        }
+
+        /* Hover — при наведении с компьютера */
+        #clickerBtn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 25px rgba(0, 102, 255, 0.8);
+        }
+
+        /* Active — при нажатии */
+        #clickerBtn:active {
+            background-color: #3399ff;
+            transform: scale(0.95);
+            box-shadow: 0 0 10px rgba(0, 102, 255, 0.8);
         }
 
         #clickerBtn.jump {
@@ -74,10 +87,9 @@
         <p>Теперь снова кликаем!</p>
     </div>
 
-    <button class="btn btn-primary" id="clickerBtn">Нажми меня!</button>
+    <button id="clickerBtn">Нажми меня!</button>
 
     <script>
-        // Выводим предыдущий результат, если есть
         const params = new URLSearchParams(window.location.search);
         const score = params.get("score");
         const total = params.get("total");
@@ -109,7 +121,6 @@
                 button.style.height = newSize + 'px';
                 button.style.fontSize = (newSize / standardSize * 1.5) + 'rem';
 
-                // Случайная позиция в пределах окна
                 const maxTop = window.innerHeight - newSize - 20;
                 const maxLeft = window.innerWidth - newSize - 20;
                 const newTop = Math.floor(Math.random() * maxTop);
@@ -127,9 +138,6 @@
                 window.location.href = 'we-index.html';
             }
         });
-
-        // Для сенсорных устройств: отключаем масштабирование при тапе
-        button.addEventListener('touchstart', e => e.preventDefault(), {passive: false});
     </script>
 </body>
 </html>
