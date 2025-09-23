@@ -1,23 +1,69 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Happy Birthday to you</title>
   <link rel="stylesheet" href="css/styles.css" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      text-align: center;
+      color: #4a004e;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    h1.title {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    .first-block p {
+      font-size: 1.2rem;
+      margin: 8px 0;
+    }
+
+    button.clicker {
+      margin-top: 30px;
+      padding: 20px 30px;
+      font-size: 1.3rem;
+      border-radius: 50px;
+      background: #ff66b2;
+      border: none;
+      box-shadow: 0 0 15px rgba(255, 102, 178, 0.6);
+      transition: transform 0.2s, box-shadow 0.2s;
+      width: 80%;
+      max-width: 300px;
+    }
+
+    button.clicker:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 25px rgba(255, 102, 178, 0.9);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
 </head>
-<body class="d-flex flex-column justify-content-center align-items-center min-vh-100 text-center">
-
-  <h1 class="title mb-3">Привет!</h1>
-
-  <div class="first-block mb-4">
+<body>
+  <h1 class="title">Привет!</h1>
+  
+  <div class="first-block" id="mainDiv">
     <p>Давай поиграем в игру...</p>
     <p>Она называется "Клик".</p>
     <p>Нажимай кнопку, пока сайт не решит, что хватит.</p>
   </div>
 
-  <button class="clicker btn btn-primary px-4 py-3 rounded-pill" id="myButton">Click me</button>
+  <button class="clicker btn btn-primary" id="myButton">Click me</button>
 
   <script>
     let clickCount = 0;
@@ -27,7 +73,6 @@
     button.addEventListener('click', function() {
       clickCount++;
       if (clickCount === requiredClicks) {
-        alert('Достигнуто нужное количество нажатий!');
         window.location.href = 'second-index.html';
       }
     });
