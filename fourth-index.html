@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Кликер</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
@@ -50,8 +50,10 @@
             color: white;
             box-shadow: 0 0 15px rgba(255, 102, 178, 0.6);
             transition: all 0.2s ease;
-            margin-top: 50px; /* кнопка ниже текста */
+            margin-top: 50px;
             position: relative;
+            touch-action: manipulation; /* отключаем масштабирование при тапе */
+            user-select: none; /* нельзя выделить текст при двойном клике */
         }
 
         #clickerBtn.jump {
@@ -72,9 +74,10 @@
         <p>Теперь снова кликаем!</p>
     </div>
 
-    <button id="clickerBtn">Нажми меня!</button>
+    <button class="btn btn-primary" id="clickerBtn">Нажми меня!</button>
 
     <script>
+        // Выводим предыдущий результат, если есть
         const params = new URLSearchParams(window.location.search);
         const score = params.get("score");
         const total = params.get("total");
@@ -97,12 +100,16 @@
                 button.style.width = standardSize + 'px';
                 button.style.height = standardSize + 'px';
                 button.style.fontSize = '1.5rem';
+                button.style.position = "relative";
+                button.style.top = '';
+                button.style.left = '';
             } else {
                 const newSize = Math.floor(Math.random() * (maxSize - minSize + 1)) + minSize;
                 button.style.width = newSize + 'px';
                 button.style.height = newSize + 'px';
                 button.style.fontSize = (newSize / standardSize * 1.5) + 'rem';
 
+                // Случайная позиция в пределах окна
                 const maxTop = window.innerHeight - newSize - 20;
                 const maxLeft = window.innerWidth - newSize - 20;
                 const newTop = Math.floor(Math.random() * maxTop);
@@ -116,10 +123,13 @@
                 setTimeout(() => button.classList.remove('jump'), 150);
             }
 
-            if (clicks >= 48) {
+            if (clicks >= 100) {
                 window.location.href = 'we-index.html';
             }
         });
+
+        // Для сенсорных устройств: отключаем масштабирование при тапе
+        button.addEventListener('touchstart', e => e.preventDefault(), {passive: false});
     </script>
 </body>
 </html>
