@@ -35,7 +35,7 @@
             cursor: pointer;
             transition: transform 0.2s, box-shadow 0.2s;
         }
-        button:hover {
+        button:hover:enabled {
             transform: scale(1.05);
             box-shadow: 0 0 25px rgba(255, 102, 178, 0.9);
         }
@@ -65,6 +65,37 @@
         let hintIndex = 0;
         let firstClick = true;
 
+        // Функция "печатания текста"
+        function typeText(element, text, speed = 50) {
+            element.textContent = "";
+            let i = 0;
+            const interval = setInterval(() => {
+                element.textContent += text[i];
+                i++;
+                if (i >= text.length) {
+                    clearInterval(interval);
+                }
+            }, speed);
+        }
+
+        // Кулдаун кнопки
+        function startCooldown(seconds) {
+            let remaining = seconds;
+            hintBtn.disabled = true;
+            hintBtn.textContent = remaining;
+
+            const timer = setInterval(() => {
+                remaining--;
+                if (remaining > 0) {
+                    hintBtn.textContent = remaining;
+                } else {
+                    clearInterval(timer);
+                    hintBtn.disabled = false;
+                    hintBtn.textContent = "Подсказка";
+                }
+            }, 1000);
+        }
+
         hintBtn.addEventListener('click', () => {
             // При первом клике удаляем все <p> кроме <h1>
             if (firstClick) {
@@ -73,14 +104,22 @@
                 firstClick = false;
             }
 
-            // Показываем следующую подсказку
+            // Показываем подсказку
             if (hintIndex < hints.length) {
                 const p = document.createElement('p');
-                p.textContent = hints[hintIndex];
                 document.body.insertBefore(p, hintBtn);
+
+                // Печатаем подсказку по буквам
+                typeText(p, hints[hintIndex], 60);
+
                 hintIndex++;
 
-                // Блокировка кнопки после всех подсказок
+                // После каждой подсказки (кроме последней) включаем кулдаун
+                if (hintIndex < hints.length) {
+                    startCooldown(30);
+                }
+
+                // Когда все подсказки показаны
                 if (hintIndex === hints.length) {
                     hintBtn.disabled = true;
                     hintBtn.textContent = "Все подсказки показаны!";
