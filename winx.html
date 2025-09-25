@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Винкс Викторина</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            text-align: center;
+            color: #4a004e;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        h1, h2 { animation: fadeIn 2s ease-in-out; }
+        h1 { font-size: 2.5rem; margin-bottom: 15px; }
+        h2 { font-size: 1.5rem; margin-top: 30px; }
+        p { font-size: 1.2rem; margin: 8px 0; }
+        .victorina { margin-top: 30px; max-width: 700px; margin-left: auto; margin-right: auto; text-align: left; }
+        .form-check { margin: 5px 0; }
+        button.submit-button {
+            margin-top: 30px; padding: 15px 25px; font-size: 1.2rem; border-radius: 50px;
+            background: #ff66b2; border: none; box-shadow: 0 0 15px rgba(255, 102, 178, 0.6);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        button.submit-button:hover {
+            transform: scale(1.05); box-shadow: 0 0 25px rgba(255, 102, 178, 0.9);
+        }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body>
+    <h1>Понял, принял....</h1>
+    <p>Пойдем с тяжелой артиллерией...</p>
+    <p>Как тебе такое?</p>
+
+    <img src="./img/1755e6_f67101e98ea74f73a74f474d5b3925c9_mv2-1-1024x623.jpg" class="img-fluid mb-4" alt="Винкс" />
+
+    <div class="victorina">
+        <!-- 1 -->
+        <h2>1. Какая магическая сила у Блум на момент её открытия в Алфее?</h2>
+        <br>
+        <div class="form-check"><input class="form-check-input" type="radio" name="q1" value="Драконий огонь"><label class="form-check-label">Драконий огонь</label></div>
+        <div class="form-check"><input class="form-check-input" type="radio" name="q1" value="Стихия воды"><label class="form-check-label">Стихия воды</label></div>
+        <div class="form-check"><input class="form-check-input" type="radio" name="q1" value="Сила природы"><label class="form-check-label">Сила природы</label></div>
+
+        <!-- 2 -->
+        <br><br>
+        <h2>2. Какая фея была первой, кто узнал о происхождении Блум?</h2>
+        <br>
+        <div class="form-check"><input class="form-check-input" type="radio" name="q2" value="Стелла"><label class="form-check-label">Стелла</label></div>
+        <div class="form-check"><input class="form-check-input" type="radio" name="q2" value="Флора"><label class="form-check-label">Флора</label></div>
+        <div class="form-check"><input class="form-check-input" type="radio" name="q2" value="Муз">Муз</label></div>
+
+        <!-- 3 -->
+        <br><br>
+        <h2>3. Как назывался первый злодей, с которым столкнулась Винкс?</h2>
+        <br>
+        <div class="form-check"><input class="form-check-input" type="radio" name="q3" value="Трикс"><label class="form-check-label">Трикс</label></div>
+        <div class="form-check"><input class="form-check-input" type="radio" name="q3" value="Даркар"><label class="form-check-label">Даркар</label></div>
+        <div class="form-check"><input class="form-check-input" type="radio" name="q3" value="Малефикс"><label class="form-check-label">Малефикс</label></div>
+
+        <!-- 4 -->
+        <br><br>
+        <h2>4. Какое заклинание Стелла использовала, чтобы победить в турнире фей?</h2>
+        <br>
+        <div class="form-check"><input class="form-check-input" type="radio" name="q4" value="Солнечный свет"><label class="form-check-label">Солнечный свет</label></div>
+        <div class="form-check"><input class="form-check-input" type="radio" name="q4" value="Лунное сияние"><label class="form-check-label">Лунное сияние</label></div>
+        <div class="form-check"><input class="form-check-input" type="radio" name="q4" value="Стихийный шторм"><label class="form-check-label">Стихийный шторм</label></div>
+
+        <!-- 5 -->
+        <br><br>
+        <h2>5. Кто из Специалистов был наставником Блум в боевых искусствах?</h2>
+        <br>
+        <div class="form-check"><input class="form-check-input" type="radio" name="q5" value="Скай"><label class="form-check-label">Скай</label></div>
+        <div class="form-check"><input class="form-check-input" type="radio" name="q5" value="Ривен"><label class="form-check-label">Ривен</label></div>
+        <div class="form-check"><input class="form-check-input" type="radio" name="q5" value="Тимми"><label class="form-check-label">Тимми</label></div>
+
+        <!-- 6 -->
+        <br><br>
+        <h2>6. Как называлась магическая энергия, которую использовала Лейла (Аиша)?</h2>
+        <br>
+        <div class="form-check"><input class="form-check-input" type="radio" name="q6" value="Энергия воды"><label class="form-check-label">Энергия воды</label></div>
+        <div class="form-check"><input class="form-check-input" type="radio" name="q6" value="Энергия огня"><label class="form-check-label">Энергия огня</label></div>
+        <div class="form-check"><input class="form-check-input" type="radio" name="q6" value="Сила воздуха"><label class="form-check-label">Сила воздуха</label></div>
+
+        <!-- 7 -->
+        <br><br>
+        <h2>7. Как называлась финальная трансформация Винкс, введённая в 6 сезоне?</h2>
+        <br>
+        <div class="form-check"><input class="form-check-input" type="radio" name="q7" value="Бабилон"><label class="form-check-label">Бабилон</label></div>
+        <div class="form-check"><input class="form-check-input" type="radio" name="q7" value="Энчантикс"><label class="form-check-label">Энчантикс</label></div>
+        <div class="form-check"><input class="form-check-input" type="radio" name="q7" value="Сиреникс"><label class="form-check-label">Сиреникс</label></div>
+
+        <!-- 8 -->
+        <br><br>
+        <h2>8. Какая из Винкс владела силой исцеления растений?</h2>
+        <br>
+        <div class="form-check"><input class="form-check-input" type="radio" name="q8" value="Флора"><label class="form-check-label">Флора</label></div>
+        <div class="form-check"><input class="form-check-input" type="radio" name="q8" value="Блум"><label class="form-check-label">Блум</label></div>
+        <div class="form-check"><input class="form-check-input" type="radio" name="q8" value="Стелла"><label class="form-check-label">Стелла</label></div>
+
+        <!-- 9 -->
+        <br><br>
+        <h2>9. Как звали лидера Трикс?</h2>
+        <br>
+        <div class="form-check"><input class="form-check-input" type="radio" name="q9" value="Иви"><label class="form-check-label">Иви</label></div>
+        <div class="form-check"><input class="form-check-input" type="radio" name="q9" value="Джинкс"><label class="form-check-label">Джинкс</label></div>
+        <div class="form-check"><input class="form-check-input" type="radio" name="q9" value="Лава"><label class="form-check-label">Лава</label></div>
+
+        <!-- 10 -->
+        <br><br>
+        <h2>10. Как назывался артефакт, с помощью которого Даркар пытался захватить Алфею?</h2>
+        <br>
+        <div class="form-check"><input class="form-check-input" type="radio" name="q10" value="Сфера Силы"><label class="form-check-label">Сфера Силы</label></div>
+        <div class="form-check"><input class="form-check-input" type="radio" name="q10" value="Кристалл Огня"><label class="form-check-label">Кристалл Огня</label></div>
+        <div class="form-check"><input class="form-check-input" type="radio" name="q10" value="Лунный Камень"><label class="form-check-label">Лунный Камень</label></div>
+
+        <!-- 11 -->
+        <br><br>
+        <h2>11. Как назывался замок Специалистов в dimension Магикса?</h2>
+        <br>
+        <div class="form-check"><input class="form-check-input" type="radio" name="q11" value="Рубиновый замок"><label class="form-check-label">Рубиновый замок</label></div>
+        <div class="form-check"><input class="form-check-input" type="radio" name="q11" value="Алфея"><label class="form-check-label">Алфея</label></div>
+        <div class="form-check"><input class="form-check-input" type="radio" name="q11" value="Талия"><label class="form-check-label">Талия</label></div>
+
+        <!-- 12 -->
+        <br><br>
+        <h2>12. Какая фея получила силу Техномагии?</h2>
+        <br>
+        <div class="form-check"><input class="form-check-input" type="radio" name="q12" value="Муз"><label class="form-check-label">Муз</label></div>
+        <div class="form-check"><input class="form-check-input" type="radio" name="q12" value="Лейла (Аиша)"><label class="form-check-label">Лейла (Аиша)</label></div>
+        <div class="form-check"><input class="form-check-input" type="radio" name="q12" value="Стелла"><label class="form-check-label">Стелла</label></div>
+    </div>
+
+    <button class="btn btn-primary submit-button" onclick="checkAnswers()">Отправить</button>
+
+    <script>
+        function checkAnswers() {
+            const correctAnswers = {
+                q1: "Драконий огонь",
+                q2: "16",
+                q3: "Алфея",
+                q4: "Грумикс",
+                q5: "Скай",
+                q6: "Энергия воды",
+                q7: "Сиреникс",
+                q8: "Флора",
+                q9: "Иви",
+                q10: "Сфера Силы",
+                q11: "Алфея",
+                q12: "Муз"
+            };
+
+            let score = 0;
+            const total = Object.keys(correctAnswers).length;
+
+            for (const key in correctAnswers) {
+                const radios = document.getElementsByName(key);
+                for (const radio of radios) {
+                    if (radio.checked && radio.value.trim() === correctAnswers[key].trim()) {
+                        score++;
+                    }
+                }
+            }
+
+            const nextPage = score === total ? "fifth-index.html" : "fourth-index.html";
+            window.location.href = `${nextPage}?score=${score}&total=${total}`;
+        }
+    </script>
+</body>
+</html>

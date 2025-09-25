@@ -33,6 +33,7 @@ p { font-size: 1.2rem; margin: 5px 0; }
     height: 150px;
     font-size: 1.5rem;
     border-radius: 50%;
+    background: linear-gradient(45deg, #ff66b2, #ffcc66);
     border: none;
     color: white;
     box-shadow: 0 0 15px rgba(255, 102, 178, 0.6);
@@ -49,7 +50,6 @@ p { font-size: 1.2rem; margin: 5px 0; }
     padding: 10px;
     word-wrap: break-word;
     white-space: normal;
-    background: linear-gradient(45deg, #ff66b2, #ffcc66);
 }
 
 /* Hover */
@@ -71,13 +71,6 @@ p { font-size: 1.2rem; margin: 5px 0; }
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(-20px); }
     to { opacity: 1; transform: translateY(0); }
-}
-
-/* Радужный плавный перелив */
-@keyframes gradientShift {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
 }
 </style>
 </head>
@@ -109,11 +102,25 @@ if(scoreVal && totalVal){
     scoreEl.innerText = `Ты набрала ${scoreVal} из ${totalVal} баллов!`;
 }
 
+// Генерация случайного градиента
+function getRandomGradient() {
+    const colors = [];
+    for(let i=0;i<3;i++){
+        colors.push(`#${Math.floor(Math.random()*16777215).toString(16)}`);
+    }
+    return `linear-gradient(45deg, ${colors.join(', ')})`;
+}
+
 button.addEventListener('click', () => {
     clicks++;
 
+    // Кнопка прыгает и меняет цвет сразу
+    button.classList.add('jump');
+    setTimeout(() => button.classList.remove('jump'), 150);
+    button.style.background = getRandomGradient();
+
+    // После 48 кликов меняем текст полностью (кроме заголовка)
     if(clicks === 48){
-        // Меняем текст полностью (кроме заголовка)
         scoreEl.innerText = "Но это еще не все!";
         messageEl.innerText = "Приготовься к следующему этапу!";
         button.innerText = "Продолжить";
@@ -130,26 +137,13 @@ button.addEventListener('click', () => {
         button.style.lineHeight = "1.2";
         button.style.whiteSpace = "normal";
 
-        // Мягкий плавный радужный перелив
-        button.style.background = "linear-gradient(270deg, #ff66b2, #ffcc66, #66ccff, #cc66ff)";
-        button.style.backgroundSize = "800% 800%";
-        button.style.color = "white";
-        button.style.animation = "gradientShift 8s ease infinite";
-
-        // Кнопка ведет на Twilight.html
-        button.onclick = () => { window.location.href = "Twilight.html"; };
+        // Кнопка ведет на eight-index.html
+        button.onclick = () => { window.location.href = "eight-index.html"; };
         return;
     }
 
-    // Поведение кнопки до 48 кликов
-    if(clicks <= 20){
-        button.style.width = standardSize + 'px';
-        button.style.height = standardSize + 'px';
-        button.style.fontSize = '1.5rem';
-        button.style.position = "relative";
-        button.style.top = '';
-        button.style.left = '';
-    } else {
+    // Поведение кнопки до 48 кликов (движение сразу после первого клика)
+    if(clicks >= 1 && clicks < 48){
         const newSize = Math.floor(Math.random() * (maxSize - minSize + 1)) + minSize;
         button.style.width = newSize + 'px';
         button.style.height = newSize + 'px';
@@ -163,14 +157,11 @@ button.addEventListener('click', () => {
         button.style.position = "absolute";
         button.style.top = newTop + 'px';
         button.style.left = newLeft + 'px';
-
-        button.classList.add('jump');
-        setTimeout(() => button.classList.remove('jump'), 150);
     }
 
     // На 100 кликах переходим на следующую страницу
     if(clicks >= 100){
-        window.location.href = 'we-index.html';
+        window.location.href = 'eight-index.html';
     }
 });
 </script>

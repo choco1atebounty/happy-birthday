@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Twilight Quiz</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      text-align: center;
+      color: #4a004e;
+      min-height: 100vh;
+      padding: 20px;
+    }
+    h1, h2 { animation: fadeIn 2s ease-in-out; }
+    h1 { font-size: 2.5rem; margin-bottom: 15px; }
+    h2 { font-size: 1.5rem; margin-top: 30px; }
+    p { font-size: 1.2rem; margin: 8px 0; }
+    .victorina { margin-top: 30px; max-width: 700px; margin-left: auto; margin-right: auto; text-align: left; }
+    .form-check { margin: 5px 0; }
+    button.submit-button {
+      margin-top: 30px; padding: 15px 25px; font-size: 1.2rem; border-radius: 50px;
+      background: #ff66b2; border: none; box-shadow: 0 0 15px rgba(255, 102, 178, 0.6);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    button.submit-button:hover {
+      transform: scale(1.05); box-shadow: 0 0 25px rgba(255, 102, 178, 0.9);
+    }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+  </style>
+</head>
+<body>
+  <h1>Следующее задание!</h1>
+  <p>Проверим, насколько хорошо ты помнишь детали «Сумерек»?</p>
+    <br><br>
+  <div class="victorina">
+    <!-- 1 -->
+    <h2>1. В каком городе происходят основные события саги?</h2>
+    <br>
+    <div class="form-check"><input class="form-check-input" type="radio" name="q1" value="Форкс"><label class="form-check-label">Форкс</label></div>
+    <div class="form-check"><input class="form-check-input" type="radio" name="q1" value="Сиэтл"><label class="form-check-label">Сиэтл</label></div>
+    <div class="form-check"><input class="form-check-input" type="radio" name="q1" value="Портленд"><label class="form-check-label">Портленд</label></div>
+
+    <!-- 2 -->
+    <br><br>
+<h2>2. Какое блюдо Белла ест при первой встрече с Калленами?</h2>
+<br>
+<div class="form-check"><input class="form-check-input" type="radio" name="q2" value="Салат"><label class="form-check-label">Салат</label></div>
+<div class="form-check"><input class="form-check-input" type="radio" name="q2" value="Лазанья"><label class="form-check-label">Лазанья</label></div>
+<div class="form-check"><input class="form-check-input" type="radio" name="q2" value="Курица с рисом"><label class="form-check-label">Курица с рисом</label></div>
+
+<!-- 3 -->
+<br><br>
+<h2>3. Какой дар был у Джейн из клана Вольтури?</h2>
+<br>
+<div class="form-check"><input class="form-check-input" type="radio" name="q3" value="Иллюзии"><label class="form-check-label">Иллюзии</label></div>
+<div class="form-check"><input class="form-check-input" type="radio" name="q3" value="Психическая боль"><label class="form-check-label">Психическая боль</label></div>
+<div class="form-check"><input class="form-check-input" type="radio" name="q3" value="Управление огнём"><label class="form-check-label">Управление огнём</label></div>
+
+    <!-- 4 -->
+    <br><br>
+    <h2>4. Как зовут дочь Беллы и Эдварда?</h2>
+    <br>
+    <div class="form-check"><input class="form-check-input" type="radio" name="q4" value="Ренесми"><label class="form-check-label">Ренесми</label></div>
+    <div class="form-check"><input class="form-check-input" type="radio" name="q4" value="Карлайл"><label class="form-check-label">Карлайл</label></div>
+    <div class="form-check"><input class="form-check-input" type="radio" name="q4" value="Изабелла-младшая"><label class="form-check-label">Изабелла-младшая</label></div>
+
+    <!-- 5 -->
+    <h2>5. Какой дар был у Беллы после превращения?</h2>
+    <div class="form-check"><input class="form-check-input" type="radio" name="q5" value="Щит"><label class="form-check-label">Щит</label></div>
+    <div class="form-check"><input class="form-check-input" type="radio" name="q5" value="Телепатия"><label class="form-check-label">Телепатия</label></div>
+    <div class="form-check"><input class="form-check-input" type="radio" name="q5" value="Управление временем"><label class="form-check-label">Управление временем</label></div>
+
+    <!-- 6 -->
+    <h2>6. Какую музыку слушал Эдвард в машине, когда вёз Беллу?</h2>
+    <div class="form-check"><input class="form-check-input" type="radio" name="q6" value="Классическая"><label class="form-check-label">Классическая</label></div>
+    <div class="form-check"><input class="form-check-input" type="radio" name="q6" value="Рок"><label class="form-check-label">Рок</label></div>
+    <div class="form-check"><input class="form-check-input" type="radio" name="q6" value="Джаз"><label class="form-check-label">Джаз</label></div>
+
+    <!-- 7 -->
+    <h2>7. Кто обратил Карлайла Каллена в вампира?</h2>
+    <div class="form-check"><input class="form-check-input" type="radio" name="q7" value="Его отец"><label class="form-check-label">Его отец</label></div>
+    <div class="form-check"><input class="form-check-input" type="radio" name="q7" value="Неизвестный вампир в Лондоне"><label class="form-check-label">Неизвестный вампир в Лондоне</label></div>
+    <div class="form-check"><input class="form-check-input" type="radio" name="q7" value="Аро"><label class="form-check-label">Аро</label></div>
+
+    <!-- 8 -->
+    <h2>8. Кто был альфой стаи оборотней, прежде чем Джейкоб отошёл от Сам Ули?</h2>
+    <div class="form-check"><input class="form-check-input" type="radio" name="q8" value="Сэм Ули"><label class="form-check-label">Сэм Ули</label></div>
+    <div class="form-check"><input class="form-check-input" type="radio" name="q8" value="Пол Лахоте"><label class="form-check-label">Пол Лахоте</label></div>
+    <div class="form-check"><input class="form-check-input" type="radio" name="q8" value="Джейкоб"><label class="form-check-label">Джейкоб</label></div>
+
+    <!-- 9 -->
+    <h2>9. В какой части Эдвард делает предложение Белле?</h2>
+    <div class="form-check"><input class="form-check-input" type="radio" name="q9" value="Затмение"><label class="form-check-label">Затмение</label></div>
+    <div class="form-check"><input class="form-check-input" type="radio" name="q9" value="Новолуние"><label class="form-check-label">Новолуние</label></div>
+    <div class="form-check"><input class="form-check-input" type="radio" name="q9" value="Рассвет: Часть 1"><label class="form-check-label">Рассвет: Часть 1</label></div>
+
+    <!-- 10 -->
+    <h2>10. Какая семья вампиров помогла Калленам против Вольтури?</h2>
+    <div class="form-check"><input class="form-check-input" type="radio" name="q10" value="Денали"><label class="form-check-label">Денали</label></div>
+    <div class="form-check"><input class="form-check-input" type="radio" name="q10" value="Амазонки"><label class="form-check-label">Амазонки</label></div>
+    <div class="form-check"><input class="form-check-input" type="radio" name="q10" value="Обе семьи"><label class="form-check-label">Обе семьи</label></div>
+
+    <!-- 11 -->
+    <h2>11. Какую силу имел Бенджамин (вампир из Египта)?</h2>
+    <div class="form-check"><input class="form-check-input" type="radio" name="q11" value="Стихии"><label class="form-check-label">Стихии</label></div>
+    <div class="form-check"><input class="form-check-input" type="radio" name="q11" value="Исцеление"><label class="form-check-label">Исцеление</label></div>
+    <div class="form-check"><input class="form-check-input" type="radio" name="q11" value="Иллюзии"><label class="form-check-label">Иллюзии</label></div>
+
+    <!-- 12 -->
+    <h2>12. Чем заканчивалась финальная битва в фильме «Рассвет: Часть 2»?</h2>
+    <div class="form-check"><input class="form-check-input" type="radio" name="q12" value="Все Каллены погибли"><label class="form-check-label">Все Каллены погибли</label></div>
+    <div class="form-check"><input class="form-check-input" type="radio" name="q12" value="Это было видение Алисы"><label class="form-check-label">Это было видение Алисы</label></div>
+    <div class="form-check"><input class="form-check-input" type="radio" name="q12" value="Вольтури сдались в реальном бою"><label class="form-check-label">Вольтури сдались в реальном бою</label></div>
+  </div>
+
+  <button class="btn btn-primary submit-button" onclick="checkAnswers()">Отправить</button>
+
+  <script>
+    function checkAnswers() {
+      const correctAnswers = {
+        q1: "Форкс",
+        q2: "Лазанья",
+        q3: "Психическая боль",
+        q4: "Ренесми",
+        q5: "Щит",
+        q6: "Классическая",
+        q7: "Неизвестный вампир в Лондоне",
+        q8: "Сэм Ули",
+        q9: "Затмение",
+        q10: "Обе семьи",
+        q11: "Стихии",
+        q12: "Это было видение Алисы"
+      };
+
+      let score = 0;
+      const total = Object.keys(correctAnswers).length;
+
+      for (const key in correctAnswers) {
+        const radios = document.getElementsByName(key);
+        for (const radio of radios) {
+          if (radio.checked && radio.value.trim() === correctAnswers[key].trim()) {
+            score++;
+          }
+        }
+      }
+
+      const nextPage = score === total ? "eight-index.html" : "seventh-index.html";
+      window.location.href = `${nextPage}?score=${score}&total=${total}`;
+    }
+  </script>
+</body>
+</html>

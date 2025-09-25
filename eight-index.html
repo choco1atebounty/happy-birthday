@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Квест: Найди подарок</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            color: #4a004e;
+            text-align: center;
+            padding: 50px 20px;
+            min-height: 100vh;
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 1.3rem;
+            margin: 10px 0;
+        }
+        button {
+            width: 250px;
+            height: 80px;
+            font-size: 1.4rem;
+            border-radius: 50px;
+            background: #ff66b2;
+            border: none;
+            color: white;
+            box-shadow: 0 0 15px rgba(255, 102, 178, 0.6);
+            margin-top: 20px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 25px rgba(255, 102, 178, 0.9);
+        }
+        button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            box-shadow: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Ладно, ты хорошо старалась, но теперь тебе предстоит найти подарок</h1>
+    <p id="introText">Он спрятан надежно, поэтому я подготовил подсказки!</p>
+    <p id="introText2">Для появления новой подсказки нажми кнопку "Подсказка"</p>
+    <button id="hintBtn">Подсказка</button>
+
+    <script>
+        const hintBtn = document.getElementById('hintBtn');
+        const hints = [
+            "Это темное место",
+            "Расположено не высоко",
+            "Место это расположено там, где мы бываем вместе каждый вечер, но не каждое утро",
+            "Туда мы заглядываем раз в месяц",
+            "Когда подаем показания"
+        ];
+
+        let hintIndex = 0;
+        let firstClick = true;
+
+        hintBtn.addEventListener('click', () => {
+            // При первом клике удаляем все <p> кроме <h1>
+            if (firstClick) {
+                const allPs = document.querySelectorAll('body p');
+                allPs.forEach(p => p.remove());
+                firstClick = false;
+            }
+
+            // Показываем следующую подсказку
+            if (hintIndex < hints.length) {
+                const p = document.createElement('p');
+                p.textContent = hints[hintIndex];
+                document.body.insertBefore(p, hintBtn);
+                hintIndex++;
+
+                // Блокировка кнопки после всех подсказок
+                if (hintIndex === hints.length) {
+                    hintBtn.disabled = true;
+                    hintBtn.textContent = "Все подсказки показаны!";
+
+                    setTimeout(() => {
+                        // Убираем все подсказки и кнопку
+                        const allPsFinal = document.querySelectorAll('body p');
+                        allPsFinal.forEach(el => el.remove());
+                        hintBtn.remove();
+
+                        // Создаем новый текст и кнопку
+                        const newP = document.createElement('p');
+                        newP.textContent = "Когда найдешь подарок - нажми кнопку";
+                        document.body.appendChild(newP);
+
+                        const newBtn = document.createElement('button');
+                        newBtn.textContent = "Подарок найден";
+                        document.body.appendChild(newBtn);
+
+                        // Стили кнопки
+                        newBtn.style.width = '250px';
+                        newBtn.style.height = '80px';
+                        newBtn.style.fontSize = '1.4rem';
+                        newBtn.style.borderRadius = '50px';
+                        newBtn.style.background = '#ff66b2';
+                        newBtn.style.border = 'none';
+                        newBtn.style.color = 'white';
+                        newBtn.style.boxShadow = '0 0 15px rgba(255, 102, 178, 0.6)';
+                        newBtn.style.marginTop = '20px';
+                        newBtn.style.cursor = 'pointer';
+                        newBtn.onmouseover = () => {
+                            newBtn.style.transform = 'scale(1.05)';
+                            newBtn.style.boxShadow = '0 0 25px rgba(255,102,178,0.9)';
+                        };
+                        newBtn.onmouseout = () => {
+                            newBtn.style.transform = 'scale(1)';
+                            newBtn.style.boxShadow = '0 0 15px rgba(255,102,178,0.6)';
+                        };
+
+                        newBtn.addEventListener('click', () => {
+                            window.location.href = 'we-index.html';
+                        });
+
+                    }, 10000);
+                }
+            }
+        });
+    </script>
+</body>
+</html>
